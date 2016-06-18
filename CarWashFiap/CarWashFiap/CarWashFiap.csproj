@@ -95,11 +95,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\AgendamentoModel.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="Utils\AppConfig.cs" />
     <Compile Include="ViewModel\UsuarioViewModel.cs" />
     <Compile Include="View\Agendamento\AgendamentoPage.xaml.cs">
       <DependentUpon>AgendamentoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Agendamento\MeusAgendamentosPage.xaml.cs">
+      <DependentUpon>MeusAgendamentosPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -141,6 +145,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="View\Agendamento\AgendamentoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Agendamento\MeusAgendamentosPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
