@@ -11,4 +11,5 @@ GUID varchar(255) not null primary key
 Veiculo varchar(100) not null
 Placa varchar(15) not null
 Data datetime not null
+Ativo boolean not null
 
