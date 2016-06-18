@@ -1,0 +1,14 @@
+[Usuários]
+GUID varchar(255) not null primary key
+Nome varchar(255) not null
+Nickname varchar(100) not null
+Senha varchar(20) not null
+Ativo boolean not null
+
+
+[Agendamentos]
+GUID varchar(255) not null primary key
+Veiculo varchar(100) not null
+Placa varchar(15) not null
+Data datetime not null
+
