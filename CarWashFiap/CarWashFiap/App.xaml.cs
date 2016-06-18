@@ -7,6 +7,9 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Foundation.Metadata;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,6 +25,8 @@ namespace CarWashFiap
     /// </summary>
     sealed partial class App : Application
     {
+        public static ViewModel.UsuarioViewModel UsuarioVM;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -29,7 +34,14 @@ namespace CarWashFiap
         public App()
         {
             this.InitializeComponent();
+            this.InitializeUsuario();
             this.Suspending += OnSuspending;
+        }
+
+        private void InitializeUsuario()
+        {
+            // Implementar API
+            //UsuarioVM = new ViewModel.UsuarioViewModel();
         }
 
         /// <summary>
@@ -56,6 +68,10 @@ namespace CarWashFiap
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
+                if (ApiInformation.IsApiContractPresent("Windows.Phone.PhoneContract", 1)) {
+                    rootFrame.Navigated += OnNavigated;
+                }
+
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
@@ -63,6 +79,11 @@ namespace CarWashFiap
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
+                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    rootFrame.CanGoBack ? AppViewBackButtonVisibility.Visible :
+                    AppViewBackButtonVisibility.Collapsed;
             }
 
             if (e.PrelaunchActivated == false)
@@ -77,6 +98,37 @@ namespace CarWashFiap
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+        }
+
+        private async void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            e.Handled = true;
+
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+            else
+            {
+                var messageDialog = new MessageDialog(
+                "Tem certeza que deseja encerrar?",
+                "Atenção");
+
+                messageDialog.Commands.Add(new UICommand("Sim"));
+                messageDialog.Commands.Add(new UICommand("Não"));
+
+                var result = await messageDialog.ShowAsync();
+                if (result.Label == "Sim")
+                    Current.Exit();
+            }
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                ((Frame)sender).CanGoBack ? AppViewBackButtonVisibility.Visible :
+                AppViewBackButtonVisibility.Collapsed;
         }
 
         /// <summary>

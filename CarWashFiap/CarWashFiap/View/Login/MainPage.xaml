@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="CarWashFiap.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CarWashFiap"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Grid.Row="0" Grid.ColumnSpan="2" Margin="0 5 0 5">
+            <TextBlock Text="Autenticação" FontSize="30" FontWeight="Bold" />
+        </StackPanel>
+        <TextBlock Text="Usuário" Margin="5" Grid.Column="0" Grid.Row="1" />
+        <TextBox x:Name="txtUsuario" Margin="5" Grid.Column="1" Grid.Row="1" />
+        <TextBlock Text="Senha" Margin="5" Grid.Column="0" Grid.Row="2" />
+        <PasswordBox x:Name="pwdSenha" Margin="5" Grid.Column="1" Grid.Row="2" />
+        <Button x:Name="btnEntrar" Content="Entrar"
+                Grid.Row="4" Grid.Column="1"
+                HorizontalAlignment="Right" Margin="5"
+                Click="btnEntrar_Click" />
+        <Button x:Name="btnCadastrar" Content="Cadastrar"
+                Grid.Row="5" Grid.Column="1"
+                HorizontalAlignment="Right" Margin="5"
+                Click="btnCadastrar_Click" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Grid.Row="6" Grid.ColumnSpan="2">
+            <TextBlock x:Name="lblMensagem" />
+        </StackPanel>
+    </Grid>
+</Page>
