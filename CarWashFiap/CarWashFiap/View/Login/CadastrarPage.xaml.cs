@@ -51,6 +51,7 @@ namespace CarWashFiap.View.Login
                     //Implementar API
                     //App.UsuarioVM.AddUsuario(userAdd);
                     //Atualizar User Logado
+                    if (this.Frame.CanGoBack) this.Frame.GoBack();
                     this.Frame.Navigate(typeof(HomePage));
                 } else
                 {

@@ -98,6 +98,9 @@
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="Utils\AppConfig.cs" />
     <Compile Include="ViewModel\UsuarioViewModel.cs" />
+    <Compile Include="View\Agendamento\AgendamentoPage.xaml.cs">
+      <DependentUpon>AgendamentoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,13 @@
     <None Include="CarWashFiap_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\home_0.jpg" />
+    <Content Include="Assets\home_1.jpg" />
+    <Content Include="Assets\home_2.jpg" />
+    <Content Include="Assets\home_3.jpg" />
+    <Content Include="Assets\home_card_background.png" />
+    <Content Include="Assets\login_background.jpg" />
+    <Content Include="Assets\logo.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -130,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\Agendamento\AgendamentoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Home\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

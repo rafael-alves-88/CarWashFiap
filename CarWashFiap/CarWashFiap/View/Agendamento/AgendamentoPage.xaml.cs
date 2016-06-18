@@ -15,21 +15,29 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace CarWashFiap.View
+namespace CarWashFiap.View.Agendamento
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class AgendamentoPage : Page
     {
-        public HomePage()
+        public AgendamentoPage()
         {
             this.InitializeComponent();
         }
 
         private void btnAgendar_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Agendamento.AgendamentoPage));
+            if (this.txtVeiculo.Text.Length > 0 && this.txtPlaca.Text.Length > 0 && this.txtData.Text.Length > 0)
+            {
+                this.lblMensagem.Visibility = Visibility.Collapsed;
+                if (this.Frame.CanGoBack) this.Frame.GoBack();
+            } else
+            {
+                this.lblMensagem.Visibility = Visibility.Visible;
+                this.lblMensagem.Text = "Por favor, preencha todos os campos";
+            }
         }
     }
 }

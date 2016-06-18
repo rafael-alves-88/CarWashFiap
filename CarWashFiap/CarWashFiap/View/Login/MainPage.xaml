@@ -7,7 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="ms-appx:///Assets/login_background.jpg" Opacity="0.6"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -20,27 +23,36 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
-                    Grid.Row="0" Grid.ColumnSpan="2" Margin="0 5 0 5">
-            <TextBlock Text="Autenticação" FontSize="30" FontWeight="Bold" />
+                    Grid.Row="0" Grid.ColumnSpan="2" Margin="0 60 0 5">
+            <TextBlock Text="Lava Rápido xFIAP" FontSize="30" FontWeight="Bold" Foreground="White" />
         </StackPanel>
-        <TextBlock Text="Usuário" Margin="5" Grid.Column="0" Grid.Row="1" />
-        <TextBox x:Name="txtUsuario" Margin="5" Grid.Column="1" Grid.Row="1" />
-        <TextBlock Text="Senha" Margin="5" Grid.Column="0" Grid.Row="2" />
-        <PasswordBox x:Name="pwdSenha" Margin="5" Grid.Column="1" Grid.Row="2" />
-        <Button x:Name="btnEntrar" Content="Entrar"
-                Grid.Row="4" Grid.Column="1"
-                HorizontalAlignment="Right" Margin="5"
-                Click="btnEntrar_Click" />
-        <Button x:Name="btnCadastrar" Content="Cadastrar"
-                Grid.Row="5" Grid.Column="1"
-                HorizontalAlignment="Right" Margin="5"
-                Click="btnCadastrar_Click" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
-                    Grid.Row="6" Grid.ColumnSpan="2">
-            <TextBlock x:Name="lblMensagem" />
+                    Grid.Row="1" Grid.ColumnSpan="2" Margin="0 5 0 5">
+            <Image Width="120" Height="120" Source="ms-appx:///Assets/logo.jpg"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Grid.Row="2" Grid.ColumnSpan="2" Margin="0 5 0 5">
+            <TextBlock Text="Autenticação" FontSize="25" Foreground="White" />
+        </StackPanel>
+        <TextBlock Text="Usuário" Margin="5" Grid.Column="0" Grid.Row="3" Foreground="White" />
+        <TextBox x:Name="txtUsuario" Margin="5" Grid.Column="1" Grid.Row="3" Foreground="White" />
+        <TextBlock Text="Senha" Margin="5" Grid.Column="0" Grid.Row="4" Foreground="White" />
+        <PasswordBox x:Name="pwdSenha" Margin="5" Grid.Column="1" Grid.Row="4" Foreground="White" />
+        <Button x:Name="btnEntrar" Content="Entrar"
+                Grid.Row="5" Grid.Column="1" Width="130"
+                HorizontalAlignment="Right" Margin="5"
+                Click="btnEntrar_Click" Foreground="White" />
+        <Button x:Name="btnCadastrar" Content="Cadastrar"
+                Grid.Row="6" Grid.Column="1" Width="130"
+                HorizontalAlignment="Right" Margin="5"
+                Click="btnCadastrar_Click" Foreground="White" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Grid.Row="7" Grid.ColumnSpan="2">
+            <TextBlock x:Name="lblMensagem" Foreground="Red" />
         </StackPanel>
     </Grid>
 </Page>
